@@ -95,4 +95,116 @@ typeof numero; // "object"
 null == undefined; //(true)
 null === undefined; //(false)
 //NaN not a number
-"hola" * 3;//retorna un NaN 
+"hola" * 3;//retorna un NaN
+//Declaraciòn de funciones
+function saludo(){
+  alert("Hola!");
+}
+saluda();
+function(){ //funciòn anonima
+
+}
+function cuadrado(numero){
+  return numero * numero;
+}
+let cuadrado_de_dos = cuadrado(2);
+console.log(function(){}); //undefined
+//Que es el scope (alcance) colecciòn de variables objetos funciones al alcance
+let nombre = "Miguel"; //scope global
+function decir_hola(){
+  //scope local
+  console.log("Hola " + nombre);
+}
+decir_hola();
+var nombre = "Angel"
+function switch_nombre(){
+  var nombre = "Miguel";
+  console.log(nombre);
+}
+switch_nombre();
+console.log(nombre);
+//Principio Menor acceso
+/* No declarar variables sin su indicador(let,var,const) ya que se tomarian de
+ scope global*/
+ //Diferencias entre let y var
+function mayor_edad(edad){
+  if(edad >= 18){
+    var resultado = "Mayor de edad"
+  }else {
+    var resultado  = "Menor de edad"
+  }
+  console.log(resultado);
+}
+mayor_edad();
+function mayor_de_edad(edad){
+  if(edad >= 18){
+    /* la diferencia de var que tiene alcance dentro del bloque de la funciones
+    , los indicadores let y const solo tiene alcance
+    dentro del bloque de codigo mas cercano
+    */
+    let resultado = "Mayor de edad"
+  }else {
+    let resultado  = "Menor de edad"
+  }
+  console.log(resultado);
+}
+// usa const si quieres declarar una Constante
+//usa var si quieres que la variable que estas declarando si quieres que se
+//añada al scope global o al scope local
+//usa let para todo lo demas, por efecto usa let
+
+//Argumentos a funciones
+/*Argumentos y Parametros */
+function cuadrado(numero){/*El Parametro es "numero" (es algo que tiene que ser
+  llenado cuando se llama a una funcion)
+y el argumento es "(2)"(es lo que se le envia al parametro,llena el parametro)*/
+  return numero * numero;
+}
+cuadrado(2)//
+// funciones anonimas
+function executor(function){
+  function();
+}
+function decirhola(){
+  console.log("Hola");
+}
+executor(decirhola);
+executor(function(){
+  console.log("Hola");
+});
+
+/* Contextos */
+console.log(this);
+let objeto = {
+  demo: function() {
+  console.log(this);
+  }
+}
+
+let executor = {
+  funcion: null,
+  execute: function(f){
+    f();
+   this.funcion = f;
+   this.funcion();
+  }
+}
+executor.execute(objeto.demo);
+let usuario = {
+  nombre: 'Miguel',
+  apellido: 'jimenez',
+  nombrecompleto: function(){
+    console.log(this.nombre + ' ' + this.apellido)
+  }
+}
+
+let executor = {
+  funcion: null,
+  execute: function(f){
+    f();
+   this.funcion = f;
+   this.funcion();
+  }
+}
+//usuario.nombrecompleto();
+executor.execute(usuario.nombrecompleto);

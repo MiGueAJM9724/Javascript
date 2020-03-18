@@ -12,3 +12,9 @@ let division = a / parseInt(b);
 alert(a + " + " + b + " = " + suma + "\n" + a + " - " + b + " = " + resta + "\n" + a + " * " + b + " = " +
 multiplicacion + "\n" + a + " / " + b + " = " + division + "\n");
 //Imprimir la sucesiòn fibonacci el nùmero de veces que indico el usuario
+
+
+/* Programar el juego del "Numero Magico" en el que se define un numero y el usuario
+trata de adivinarlo, si el numero  que ingreso el usuario es menor, imprimir la pista
+"El numero magico es mayor", si el numeor que ingreso el usuario es mayor, imprime pista "El numero magico es menor"
+*/
